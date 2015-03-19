@@ -3,20 +3,22 @@
 #include "stdafx.h"
 #include <mono/jit/jit.h>
 #include <thread>
+#include <vector>
 
 class Application
 {
 public:
 	void Init();
+	void InitializeMono();
 	void Run();
-	void RestartMono();
+	bool StartMonoAndLoadAssemblies();
 	void StopMono();
-	void StartMono();
-	void StartMonoThread();
+	bool StartMono();
+	void FireOnReload();
 
 private:
 	std::string assemblyDir;
 	MonoDomain* domain;
-	std::thread monoThread;
 	std::vector<MonoImage*> images;
+	std::vector<MonoObject*> instances;
 };

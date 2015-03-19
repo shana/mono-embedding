@@ -109,3 +109,5 @@ ipch/
 
 # Microsoft Fakes
 FakesAssemblies/
+
+*.config

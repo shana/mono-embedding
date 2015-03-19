@@ -1,5 +1,7 @@
-#include "Application.h"
+#include "Manager.h"
 #include "File.h"
+
+static Manager manager;
 
 int
 main(int argc, const char* argv[])
@@ -11,6 +13,7 @@ main(int argc, const char* argv[])
 	File::SetExecDir(str.c_str());
 
 	auto app = new Application();
+	Manager::RegisterApplication(app);
 	app->Init();
 	return 0;
 }
